@@ -13,6 +13,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  JAVA_OPTS: "-Xmx4g"
+
 # See https://github.com/marketplace/actions/deploy-to-github-pages
 jobs:
   dokka:
@@ -24,7 +27,9 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
       - name: Build docs
-        run: bash -c 'JAVA_OPTS="-Xmx4g" ./gradlew --no-daemon  -Pskiko.native.enabled=true -Pskiko.wasm.enabled=true -Pskiko.android.enabled=true :skiko:dokkaHtml'
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: --no-daemon  -Pskiko.native.enabled=true -Pskiko.wasm.enabled=true -Pskiko.android.enabled=true :skiko:dokkaHtml'
       - name: Publish documentation
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
