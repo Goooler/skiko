@@ -13,7 +13,7 @@ import kotlin.test.assertEquals
 
 private fun isLinuxOrJs() = (hostOs == OS.Linux) || (hostOs == OS.JS)
 private fun isWin() = (hostOs == OS.Windows)
-private val COARSE_EPSILON = 2.4f
+private const val COARSE_EPSILON = 2.4f
 
 class FontTests {
     @Test

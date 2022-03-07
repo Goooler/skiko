@@ -48,7 +48,7 @@ class GradientStyle(
     }
 
     companion object {
-        internal val _INTERPOLATE_PREMUL = 1
+        internal const val _INTERPOLATE_PREMUL = 1
         var DEFAULT = GradientStyle(FilterTileMode.CLAMP, true, null)
     }
 }

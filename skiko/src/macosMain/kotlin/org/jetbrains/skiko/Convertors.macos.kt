@@ -42,13 +42,12 @@ fun toSkikoEvent(
        ypos = size.height - ypos
     }
     val timestamp = (event.timestamp * 1_000).toLong()
-    var buttons: SkikoMouseButtons
-    if (kind == SkikoPointerEventKind.DOWN) {
-        buttonsFlags = buttonsFlags.or(button.value)
+    buttonsFlags = if (kind == SkikoPointerEventKind.DOWN) {
+        buttonsFlags.or(button.value)
     } else {
-        buttonsFlags = buttonsFlags.xor(button.value)
+        buttonsFlags.xor(button.value)
     }
-    buttons = SkikoMouseButtons(buttonsFlags)
+    var buttons: SkikoMouseButtons = SkikoMouseButtons(buttonsFlags)
     return SkikoPointerEvent(
         x = xpos,
         y = ypos,

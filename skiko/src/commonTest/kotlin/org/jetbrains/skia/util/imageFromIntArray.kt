@@ -3,7 +3,7 @@ package org.jetbrains.skia.util
 import org.jetbrains.skia.*
 
 fun makeByteArrayFromRGBArray(pixArray: IntArray): ByteArray {
-    var result = ByteArray(pixArray.size * 4)
+    val result = ByteArray(pixArray.size * 4)
     var off = 0
     for (pix in pixArray) {
         result[off++] = Color.getR(pix).toByte()

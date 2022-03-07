@@ -291,7 +291,7 @@ actual open class SkiaLayer internal constructor(
         mutableMapOf<PropertyKind, MutableList<(SkiaLayer) -> Unit>>()
 
     fun onStateChanged(kind: PropertyKind, handler: (SkiaLayer) -> Unit) {
-        stateHandlers.getOrPut(kind, { mutableListOf() }) += handler
+        stateHandlers.getOrPut(kind) { mutableListOf() } += handler
     }
 
     private fun notifyChange(kind: PropertyKind) {

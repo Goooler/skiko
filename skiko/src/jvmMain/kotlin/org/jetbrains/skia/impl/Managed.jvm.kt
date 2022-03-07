@@ -27,7 +27,7 @@ actual abstract class Managed actual constructor(
 
     class CleanerThunk(var className: String, var ptr: Long, var finalizerPtr: Long) : Runnable {
         override fun run() {
-            Log.trace { "Cleaning $className ${java.lang.Long.toString(ptr, 16)}" }
+            Log.trace { "Cleaning $className ${ptr.toString(16)}" }
             Stats.onDeallocated(className)
             Stats.onNativeCall()
             _nInvokeFinalizer(finalizerPtr, ptr)

@@ -171,10 +171,10 @@ class SkikoProperties(private val myProject: Project) {
 
 object SkikoArtifacts {
     // names are also used in samples, e.g. samples/SkijaInjectSample/build.gradle
-    val commonArtifactId = "skiko"
-    val jvmArtifactId = "skiko-awt"
-    val jsArtifactId = "skiko-js"
-    val jsWasmArtifactId = "skiko-js-wasm-runtime"
+    const val commonArtifactId = "skiko"
+    const val jvmArtifactId = "skiko-awt"
+    const val jsArtifactId = "skiko-js"
+    const val jsWasmArtifactId = "skiko-js-wasm-runtime"
     fun jvmRuntimeArtifactIdFor(os: OS, arch: Arch) =
         if (os == OS.Android)
             "skiko-android-runtime-${arch.id}"
