@@ -511,7 +511,7 @@ class BreakIterator internal constructor(ptr: NativePointer) : Managed(ptr, _Fin
             _text = U16String(withErrorGuard("Failed to setText") {
                 _nSetText(
                     _ptr,
-                    toInterop(text?.let { ShortArray(text.length) { text[it].code.toShort() } }),
+                    toInterop(text?.let { ShortArray(text.length) { index -> text[index].code.toShort() } }),
                     text?.length ?: 0,
                     it
                 )

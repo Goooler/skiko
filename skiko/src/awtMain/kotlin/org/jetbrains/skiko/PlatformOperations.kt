@@ -127,10 +127,10 @@ internal val platformOperations: PlatformOperations by lazy {
 }
 
 // OSX
-external private fun osxIsFullscreenNative(component: Component): Boolean
-external private fun osxSetFullscreenNative(component: Component, value: Boolean)
-external private fun osxDisableTitleBar(component: Component, headerHeight: Float)
-external private fun osxOrderEmojiAndSymbolsPopup()
+private external fun osxIsFullscreenNative(component: Component): Boolean
+private external fun osxSetFullscreenNative(component: Component, value: Boolean)
+private external fun osxDisableTitleBar(component: Component, headerHeight: Float)
+private external fun osxOrderEmojiAndSymbolsPopup()
 
 // Linux
-external private fun linuxGetDpiScaleNative(platformInfo: Long): Float
+private external fun linuxGetDpiScaleNative(platformInfo: Long): Float

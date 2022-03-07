@@ -143,7 +143,7 @@ class AwtFontManager(fontPaths: Array<String> = emptyArray()) {
      */
     @DelicateSkikoApi
     fun listAvailableFontFiles(): List<File> {
-        return fontsMap.values.flatMap { it.map { it.file } }.toList()
+        return fontsMap.values.flatMap { value -> value.map { it.file } }.toList()
     }
 
     /**

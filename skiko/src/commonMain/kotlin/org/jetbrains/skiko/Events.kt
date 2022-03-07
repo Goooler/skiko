@@ -54,7 +54,7 @@ value class SkikoMouseButtons(val value: Int) {
                 add("BUTTON_8")
             }
         }
-        return if (!result.isEmpty()) result.toString() else ""
+        return if (result.isNotEmpty()) result.toString() else ""
     }
 }
 
@@ -90,7 +90,7 @@ value class SkikoInputModifiers(val value: Int) {
                 add("SHIFT")
             }
         }
-        return if (!result.isEmpty()) result.toString() else ""
+        return if (result.isNotEmpty()) result.toString() else ""
     }
 }
 

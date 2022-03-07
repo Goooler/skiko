@@ -3,8 +3,8 @@ package org.jetbrains.skia.impl
 import org.jetbrains.skia.ExternalSymbolName
 
 actual abstract class RefCnt : Managed {
-    actual protected constructor(ptr: NativePointer): super(ptr, _FinalizerHolder.PTR, true)
-    actual protected constructor(ptr: NativePointer, allowClose: Boolean): super(ptr, _FinalizerHolder.PTR, allowClose)
+    protected actual constructor(ptr: NativePointer): super(ptr, _FinalizerHolder.PTR, true)
+    protected actual constructor(ptr: NativePointer, allowClose: Boolean): super(ptr, _FinalizerHolder.PTR, allowClose)
 
     actual val refCount: Int
         get() {
