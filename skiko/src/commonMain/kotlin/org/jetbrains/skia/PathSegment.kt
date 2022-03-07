@@ -83,7 +83,7 @@ class PathSegment constructor(
     )
 
     override fun toString(): String {
-        return "Segment(" + "verb=" + verb + (if (verb != PathVerb.DONE) ", p0=$p0" else "") + (if (verb == PathVerb.LINE || verb == PathVerb.QUAD || verb == PathVerb.CONIC || verb == PathVerb.CUBIC) ", p1=" + p1 else "") + (if (verb == PathVerb.QUAD || verb == PathVerb.CONIC || verb == PathVerb.CUBIC) ", p2=" + p2 else "") + (if (verb == PathVerb.CUBIC) ", p3=" + p3 else "") + (if (verb == PathVerb.CONIC) ", conicWeight=" + conicWeight else "") + (if (verb == PathVerb.LINE) ", closeLine=" + isCloseLine else "") + (if (verb != PathVerb.DONE) ", closedContour=" + isClosedContour else "") + ")"
+        return "Segment(" + "verb=" + verb + (if (verb != PathVerb.DONE) ", p0=$p0" else "") + (if (verb == PathVerb.LINE || verb == PathVerb.QUAD || verb == PathVerb.CONIC || verb == PathVerb.CUBIC) ", p1=$p1" else "") + (if (verb == PathVerb.QUAD || verb == PathVerb.CONIC || verb == PathVerb.CUBIC) ", p2=$p2" else "") + (if (verb == PathVerb.CUBIC) ", p3=$p3" else "") + (if (verb == PathVerb.CONIC) ", conicWeight=$conicWeight" else "") + (if (verb == PathVerb.LINE) ", closeLine=$isCloseLine" else "") + (if (verb != PathVerb.DONE) ", closedContour=$isClosedContour" else "") + ")"
     }
 
     override fun equals(other: Any?): Boolean {

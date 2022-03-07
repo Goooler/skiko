@@ -38,7 +38,7 @@ class FontFeature(val _tag: Int, val value: Int, val start: UInt, val end: UInt)
         }
         var valuePrefix = ""
         var valueSuffix = ""
-        if (value == 0) valuePrefix = "-" else if (value == 1) valuePrefix = "+" else valueSuffix = "=" + value
+        if (value == 0) valuePrefix = "-" else if (value == 1) valuePrefix = "+" else valueSuffix = "=$value"
         return "FontFeature($valuePrefix$_tag$range$valueSuffix)"
     }
 

@@ -190,7 +190,7 @@ class Typeface internal constructor(ptr: NativePointer) : RefCnt(ptr) {
      */
     fun makeClone(variations: Array<FontVariation>, collectionIndex: Int = 0): Typeface {
         return try {
-            if (variations.size == 0) return this
+            if (variations.isEmpty()) return this
             Stats.onNativeCall()
             val variationsData = variations.asList().flatMap { listOf(it._tag, it.value.toRawBits()) }.toIntArray()
             val ptr =
@@ -340,7 +340,7 @@ class Typeface internal constructor(ptr: NativePointer) : RefCnt(ptr) {
         return try {
             Stats.onNativeCall()
             if (glyphs != null) {
-                if (glyphs.size > 0) {
+                if (glyphs.isNotEmpty()) {
                     withNullableResult(IntArray(glyphs.size)) {
                         _nGetKerningPairAdjustments(_ptr, glyphs, glyphs.size, it)
                     }

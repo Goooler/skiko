@@ -57,7 +57,7 @@ internal class Direct3DContextHandler(layer: SkiaLayer) : JvmContextHandler(laye
             }
             
             try {
-                for (bufferIndex in 0..bufferCount - 1) {
+                for (bufferIndex in 0 until bufferCount) {
                     surfaces[bufferIndex] = directXRedrawer.makeSurface(getPtr(context!!), w, h, bufferIndex)
                 }
             } finally {

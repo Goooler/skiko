@@ -175,10 +175,10 @@ actual open class SkiaLayer {
             private val kEmptyRange = NSMakeRange(NSNotFound.convert(), 0)
             override fun attributedSubstringForProposedRange(range: CValue<NSRange>, actualRange: NSRangePointer?) = null
             override fun hasMarkedText(): Boolean {
-                return markedText.length > 0
+                return markedText.isNotEmpty()
             }
             override fun markedRange(): CValue<NSRange> {
-                if (markedText.length > 0) {
+                if (markedText.isNotEmpty()) {
                     return NSMakeRange(0, (markedText.length - 1).convert())
                 }
                 return kEmptyRange

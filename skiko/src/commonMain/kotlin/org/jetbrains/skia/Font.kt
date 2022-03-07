@@ -483,7 +483,7 @@ class Font : Managed {
                 val positionsData = withResult(FloatArray(glyphs.size * 2)) {
                     _nGetPositions(_ptr, toInterop(glyphs), glyphs.size, offset.x, offset.y, it)
                 }
-                (0 until glyphs.size).map { i ->
+                (glyphs.indices).map { i ->
                     Point(positionsData[2*i], positionsData[2*i + 1])
                 }.toTypedArray()
             }

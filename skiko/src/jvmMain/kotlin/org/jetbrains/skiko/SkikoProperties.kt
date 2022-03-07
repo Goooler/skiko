@@ -35,28 +35,28 @@ internal object SkikoProperties {
     }
 
     internal fun parseRenderApi(text: String?): GraphicsApi {
-        when(text) {
-            "SOFTWARE_COMPAT" -> return GraphicsApi.SOFTWARE_COMPAT
-            "SOFTWARE_FAST", "DIRECT_SOFTWARE", "SOFTWARE" -> return GraphicsApi.SOFTWARE_FAST
-            "OPENGL" -> return GraphicsApi.OPENGL
+        return when(text) {
+            "SOFTWARE_COMPAT" -> GraphicsApi.SOFTWARE_COMPAT
+            "SOFTWARE_FAST", "DIRECT_SOFTWARE", "SOFTWARE" -> GraphicsApi.SOFTWARE_FAST
+            "OPENGL" -> GraphicsApi.OPENGL
             "DIRECT3D" -> {
-                return if (hostOs == OS.Windows) GraphicsApi.DIRECT3D
-                    else throw Exception("$hostOs does not support DirectX rendering API.")
+                if (hostOs == OS.Windows) GraphicsApi.DIRECT3D
+                else throw Exception("$hostOs does not support DirectX rendering API.")
             }
             "METAL" -> {
-                return if (hostOs == OS.MacOS) GraphicsApi.METAL
-                    else throw Exception("$hostOs does not support Metal rendering API.")
+                if (hostOs == OS.MacOS) GraphicsApi.METAL
+                else throw Exception("$hostOs does not support Metal rendering API.")
             }
-            else -> return bestRenderApiForCurrentOS()
+            else -> bestRenderApiForCurrentOS()
         }
     }
 
     private fun bestRenderApiForCurrentOS(): GraphicsApi {
-        when(hostOs) {
-            OS.MacOS -> return GraphicsApi.METAL
-            OS.Linux -> return GraphicsApi.OPENGL
-            OS.Windows -> return GraphicsApi.DIRECT3D
-            OS.Android -> return GraphicsApi.OPENGL
+        return when(hostOs) {
+            OS.MacOS -> GraphicsApi.METAL
+            OS.Linux -> GraphicsApi.OPENGL
+            OS.Windows -> GraphicsApi.DIRECT3D
+            OS.Android -> GraphicsApi.OPENGL
             OS.JS, OS.Ios -> TODO("commonize me")
         }
     }

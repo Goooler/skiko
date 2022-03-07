@@ -45,11 +45,7 @@ internal fun mapSourceFilesToOutputFiles(
 }
 
 internal class SourceToOutputMapping {
-    private val sourceToOutput = TreeMap<File, File>(object : Comparator<File> {
-        override fun compare(f1: File, f2: File): Int =
-            f1.absolutePath.compareTo(f2.absolutePath)
-
-    })
+    private val sourceToOutput = TreeMap<File, File> { f1, f2 -> f1.absolutePath.compareTo(f2.absolutePath) }
 
     operator fun get(file: File): File? =
         sourceToOutput[file]

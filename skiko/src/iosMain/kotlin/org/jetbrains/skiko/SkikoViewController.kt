@@ -80,7 +80,7 @@ class SkikoUIView : UIView, UIKeyInputProtocol {
     var keyEvent: UIPress? = null
     private var inputText: String = ""
     override fun hasText(): Boolean {
-        return inputText.length > 0
+        return inputText.isNotEmpty()
     }
 
     override fun insertText(theText: String) {

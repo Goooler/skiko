@@ -38,10 +38,10 @@ actual open class SkiaLayer internal constructor(
         get() = _transparency
         set(value) {
             _transparency = value
-            if (!value) {
-                background = UIManager.getColor("Panel.background")
+            background = if (!value) {
+                UIManager.getColor("Panel.background")
             } else {
-                background = Color(0, 0, 0, 0)
+                Color(0, 0, 0, 0)
             }
         }
 
@@ -202,11 +202,7 @@ actual open class SkiaLayer internal constructor(
             }
         })
 
-        addMouseWheelListener(object : MouseWheelListener {
-            override fun mouseWheelMoved(e: MouseWheelEvent) {
-                skikoView?.onPointerEvent(toSkikoEvent(e))
-            }
-        })
+        addMouseWheelListener { e -> skikoView?.onPointerEvent(toSkikoEvent(e)) }
 
         addKeyListener(object : KeyAdapter() {
             override fun keyPressed(e: KeyEvent) {
@@ -535,10 +531,10 @@ actual open class SkiaLayer internal constructor(
         var rounded = value * contentScale
         val diff = rounded - rounded.toInt()
         // We check values close to 0.5 and edit the size to avoid white lines glitch
-        if (diff > 0.4f && diff < 0.6f) {
-            rounded = value + 1f
+        rounded = if (diff > 0.4f && diff < 0.6f) {
+            value + 1f
         } else {
-            rounded = value.toFloat()
+            value.toFloat()
         }
         return rounded.toInt()
     }

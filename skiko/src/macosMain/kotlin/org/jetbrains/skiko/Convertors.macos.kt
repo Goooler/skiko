@@ -128,10 +128,10 @@ fun toSkikoEvent(
     val action = event.modifierFlags and NSEventModifierFlagDeviceIndependentFlagsMask.inv()
     var kind = SkikoKeyboardEventKind.DOWN
     val key = SkikoKey.valueOf(event.keyCode.toInt())
-    if (action >= modifierKeyUpFlag) {
-        kind = SkikoKeyboardEventKind.DOWN
+    kind = if (action >= modifierKeyUpFlag) {
+        SkikoKeyboardEventKind.DOWN
     } else {
-        kind = SkikoKeyboardEventKind.UP
+        SkikoKeyboardEventKind.UP
     }
     modifierKeyUpFlag = action
     if (modifierKeyUpFlag == actionAllKeyUpFlag) {

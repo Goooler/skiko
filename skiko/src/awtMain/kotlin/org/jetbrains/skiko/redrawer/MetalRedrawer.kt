@@ -128,8 +128,7 @@ internal class MetalRedrawer(
     fun finishFrame() = finishFrame(device)
 
     fun getAdapterPriority(): Int {
-        val adapterPriority = GpuPriority.parse(System.getProperty("skiko.metal.gpu.priority"))
-        return when (adapterPriority) {
+        return when (GpuPriority.parse(System.getProperty("skiko.metal.gpu.priority"))) {
             GpuPriority.Auto -> 0
             GpuPriority.Integrated -> 1
             GpuPriority.Discrete -> 2

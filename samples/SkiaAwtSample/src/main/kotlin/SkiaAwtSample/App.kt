@@ -40,46 +40,32 @@ fun createWindow(title: String, exitOnClose: Boolean) = SwingUtilities.invokeLat
     val miFullscreenState = JMenuItem("Is fullscreen mode")
     val ctrlI = KeyStroke.getKeyStroke(KeyEvent.VK_I, Toolkit.getDefaultToolkit().menuShortcutKeyMaskEx)
     miFullscreenState.accelerator = ctrlI
-    miFullscreenState.addActionListener(object : ActionListener {
-        override fun actionPerformed(actionEvent: ActionEvent?) {
-            println("${window.title} is in fullscreen mode: ${skiaLayer.fullscreen}")
-        }
-    })
+    miFullscreenState.addActionListener { println("${window.title} is in fullscreen mode: ${skiaLayer.fullscreen}") }
 
     val miToggleFullscreen = JMenuItem("Toggle fullscreen")
     val ctrlF = KeyStroke.getKeyStroke(KeyEvent.VK_F, Toolkit.getDefaultToolkit().menuShortcutKeyMaskEx)
     miToggleFullscreen.accelerator = ctrlF
-    miToggleFullscreen.addActionListener(object : ActionListener {
-        override fun actionPerformed(actionEvent: ActionEvent?) {
-            skiaLayer.fullscreen = !skiaLayer.fullscreen
-        }
-    })
+    miToggleFullscreen.addActionListener { skiaLayer.fullscreen = !skiaLayer.fullscreen }
 
     val defaultScreenshotPath =
         Files.createTempFile("compose_", ".png").toAbsolutePath().toString()
     val miTakeScreenshot = JMenuItem("Take screenshot to $defaultScreenshotPath")
     val ctrlS = KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().menuShortcutKeyMaskEx)
     miTakeScreenshot.accelerator = ctrlS
-    miTakeScreenshot.addActionListener(object : ActionListener {
-        override fun actionPerformed(actionEvent: ActionEvent?) {
-            val screenshot = skiaLayer.screenshot()!!
-            @OptIn(DelicateCoroutinesApi::class)
-            GlobalScope.launch(Dispatchers.IO) {
-                val image = screenshot.toBufferedImage()
-                ImageIO.write(image, "png", File(defaultScreenshotPath))
-                println("Saved to $defaultScreenshotPath")
-            }
+    miTakeScreenshot.addActionListener {
+        val screenshot = skiaLayer.screenshot()!!
+        @OptIn(DelicateCoroutinesApi::class)
+        GlobalScope.launch(Dispatchers.IO) {
+            val image = screenshot.toBufferedImage()
+            ImageIO.write(image, "png", File(defaultScreenshotPath))
+            println("Saved to $defaultScreenshotPath")
         }
-    })
+    }
 
     val miDpiState = JMenuItem("Get current DPI")
     val ctrlD = KeyStroke.getKeyStroke(KeyEvent.VK_D, Toolkit.getDefaultToolkit().menuShortcutKeyMaskEx)
     miDpiState.accelerator = ctrlD
-    miDpiState.addActionListener(object : ActionListener {
-        override fun actionPerformed(actionEvent: ActionEvent?) {
-            println("DPI: ${skiaLayer.currentDPI}")
-        }
-    })
+    miDpiState.addActionListener { println("DPI: ${skiaLayer.currentDPI}") }
 
     fileMenu.add(miToggleFullscreen)
     fileMenu.add(miFullscreenState)
@@ -91,11 +77,7 @@ fun createWindow(title: String, exitOnClose: Boolean) = SwingUtilities.invokeLat
 
     val miEmojiAndSymbols = JMenuItem("Emoji & Symbols")
     miEmojiAndSymbols.accelerator = KeyStroke.getKeyStroke("ctrl meta SPACE")
-    miEmojiAndSymbols.addActionListener(object : ActionListener {
-        override fun actionPerformed(actionEvent: ActionEvent?) {
-            orderEmojiAndSymbolsPopup()
-        }
-    })
+    miEmojiAndSymbols.addActionListener { orderEmojiAndSymbolsPopup() }
 
     editMenu.add(miEmojiAndSymbols)
 

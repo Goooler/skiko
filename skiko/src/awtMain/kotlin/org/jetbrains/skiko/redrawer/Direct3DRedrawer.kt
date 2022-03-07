@@ -78,8 +78,7 @@ internal class Direct3DRedrawer(
     )
 
     private fun getAdapterPriority(): Int {
-        val adapterPriority = GpuPriority.parse(System.getProperty("skiko.directx.gpu.priority"))
-        return when (adapterPriority) {
+        return when (GpuPriority.parse(System.getProperty("skiko.directx.gpu.priority"))) {
             GpuPriority.Auto -> 0
             GpuPriority.Integrated -> 1
             GpuPriority.Discrete -> 2
