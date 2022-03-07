@@ -1,12 +1,23 @@
 package org.jetbrains.skiko
 
-import org.jetbrains.skia.*
+import org.jetbrains.skia.Data
+import org.jetbrains.skia.FontFamilyName
+import org.jetbrains.skia.FontStyle
+import org.jetbrains.skia.FontVariation
+import org.jetbrains.skia.FontVariationAxis
+import org.jetbrains.skia.Rect
+import org.jetbrains.skia.Typeface
 import org.jetbrains.skia.tests.assertCloseEnough
 import org.jetbrains.skia.tests.makeFromResource
-import org.jetbrains.skiko.tests.SkipJsTarget
-import org.jetbrains.skiko.tests.SkipNativeTarget
 import org.jetbrains.skiko.tests.runTest
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertContentEquals
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertNotEquals
+import kotlin.test.assertNotNull
+import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
 class TypefaceTest {
 

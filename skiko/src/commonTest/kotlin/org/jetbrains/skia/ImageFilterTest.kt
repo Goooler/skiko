@@ -3,7 +3,6 @@ package org.jetbrains.skia
 import org.jetbrains.skia.impl.use
 import org.jetbrains.skia.util.assertContentDifferent
 import org.jetbrains.skiko.tests.runTest
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

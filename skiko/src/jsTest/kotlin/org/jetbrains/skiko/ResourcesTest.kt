@@ -39,9 +39,7 @@ class ResourcesTest {
     fun loadFromPathByNonLiteralPathTest() = runTest {
         suspend fun loadFont(style: String): ByteArray {
             val url = resourcePath("./fonts/FiraCode-$style.ttf")
-            val res = loadBytesFromPath(url).sliceArray(0..9)
-
-            return res
+            return loadBytesFromPath(url).sliceArray(0..9)
         }
 
         assertContentEquals(byteArrayOf(

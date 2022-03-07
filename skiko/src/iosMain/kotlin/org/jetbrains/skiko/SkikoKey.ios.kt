@@ -111,8 +111,8 @@ actual enum class SkikoKey(val value: UIKeyboardHIDUsage) {
 
     companion object {
         fun valueOf(value: UIKeyboardHIDUsage): SkikoKey {
-            val key = SkikoKey.values().firstOrNull { it.value == value }
-            return key ?: SkikoKey.KEY_UNKNOWN
+            val key = values().firstOrNull { it.value == value }
+            return key ?: KEY_UNKNOWN
         }
     }
 }

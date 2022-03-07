@@ -1,7 +1,6 @@
 package org.jetbrains.skia.shaper
 
-import org.jetbrains.skia.*
-import org.jetbrains.skia.impl.Native
+import org.jetbrains.skia.Font
 import org.jetbrains.skia.impl.NativePointer
 import org.jetbrains.skia.impl.getPtr
 import org.jetbrains.skia.impl.reachabilityBarrier

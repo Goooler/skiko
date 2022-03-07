@@ -130,7 +130,7 @@ if (supportWasm) {
 fun compileNativeBridgesTask(os: OS, arch: Arch): TaskProvider<CompileSkikoCppTask> {
     val skiaNativeDir = registerOrGetSkiaDirProvider(os, arch)
 
-    return project.registerSkikoTask<CompileSkikoCppTask>("compileNativeBridges", os, arch) {
+    return project.registerSkikoTask("compileNativeBridges", os, arch) {
         dependsOn(skiaNativeDir)
         val unpackedSkia = skiaNativeDir.get()
 

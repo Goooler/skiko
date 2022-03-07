@@ -198,7 +198,7 @@ internal actual class InteropScope actual constructor() {
 
     actual inline fun <reified T> InteropPointer.fromInterop(decoder: ArrayInteropDecoder<T>): Array<T> {
         val size = decoder.getArraySize(this)
-        val result = Array<T>(size) {
+        val result = Array(size) {
             decoder.getArrayElement(this, it)
         }
         decoder.disposeArray(this)

@@ -4,14 +4,13 @@ import kotlin.math.round
 
 class Color4f constructor(val r: Float, val g: Float, val b: Float, val a: Float = 1.0f) {
 
-    constructor(rgba: FloatArray) : this(rgba[0], rgba[1], rgba[2], rgba[3]) {}
+    constructor(rgba: FloatArray) : this(rgba[0], rgba[1], rgba[2], rgba[3])
     constructor(c: Int) : this(
         (c shr 16 and 255) / 255.0f,
         (c shr 8 and 255) / 255.0f,
         (c and 255) / 255.0f,
         (c shr 24 and 255) / 255.0f
-    ) {
-    }
+    )
 
     fun toColor(): Int {
         return round(a * 255.0f).toInt() shl 24 or (round(r * 255.0f).toInt() shl 16) or (round(

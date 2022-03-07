@@ -32,8 +32,7 @@ class DecorationStyle(
         color,
         DecorationLineStyle.values()[lineStyle],
         thicknessMultiplier
-    ) {
-    }
+    )
 
     fun hasUnderline(): Boolean {
         return _underline

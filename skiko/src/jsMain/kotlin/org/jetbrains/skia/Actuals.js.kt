@@ -39,4 +39,4 @@ actual fun defaultLanguageTag(): String = LANG
 
 actual fun compilePattern(regex: String): Pattern = Pattern(regex)
 
-actual typealias ExternalSymbolName = kotlin.js.JsName
+actual typealias ExternalSymbolName = JsName

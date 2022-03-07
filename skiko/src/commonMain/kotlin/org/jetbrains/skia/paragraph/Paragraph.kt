@@ -154,7 +154,7 @@ class Paragraph internal constructor(ptr: NativePointer, text: ManagedString?) :
     val lineMetrics: Array<LineMetrics>
         get() = try {
             if (_text == null) {
-                arrayOf<LineMetrics>()
+                arrayOf()
             } else {
                 Stats.onNativeCall()
                 interopScope {

@@ -3,8 +3,8 @@ package org.jetbrains.skiko.redrawer
 import kotlinx.cinterop.addressOf
 import kotlinx.cinterop.autoreleasepool
 import kotlinx.cinterop.objcPtr
-import kotlinx.cinterop.usePinned
 import kotlinx.cinterop.useContents
+import kotlinx.cinterop.usePinned
 import org.jetbrains.skia.BackendRenderTarget
 import org.jetbrains.skia.DirectContext
 import org.jetbrains.skiko.*
@@ -13,14 +13,13 @@ import org.jetbrains.skiko.context.MetalContextHandler
 import platform.CoreGraphics.CGColorCreate
 import platform.CoreGraphics.CGColorSpaceCreateDeviceRGB
 import platform.CoreGraphics.CGContextRef
+import platform.CoreGraphics.CGSizeMake
 import platform.Metal.MTLCreateSystemDefaultDevice
 import platform.Metal.MTLDeviceProtocol
 import platform.Metal.MTLPixelFormatBGRA8Unorm
 import platform.QuartzCore.CAMetalDrawableProtocol
 import platform.QuartzCore.CAMetalLayer
 import platform.QuartzCore.kCAGravityTopLeft
-import kotlin.system.getTimeNanos
-import platform.CoreGraphics.CGSizeMake
 
 internal class MetalRedrawer(
     private val layer: SkiaLayer

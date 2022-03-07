@@ -27,8 +27,7 @@ class ImageInfo(val colorInfo: ColorInfo, val width: Int, val height: Int) {
             alphaType,
             null
         ), width, height
-    ) {
-    }
+    )
 
     constructor(
         width: Int,
@@ -36,8 +35,7 @@ class ImageInfo(val colorInfo: ColorInfo, val width: Int, val height: Int) {
         colorType: ColorType,
         alphaType: ColorAlphaType,
         colorSpace: ColorSpace?
-    ) : this(ColorInfo(colorType, alphaType, colorSpace), width, height) {
-    }
+    ) : this(ColorInfo(colorType, alphaType, colorSpace), width, height)
 
     internal constructor(width: Int, height: Int, colorType: Int, alphaType: Int, colorSpace: NativePointer) : this(
         width,

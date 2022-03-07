@@ -24,7 +24,7 @@ class AnimationBuilder internal constructor(ptr: NativePointer) : Managed(ptr, _
         val PTR = AnimationBuilder_nGetFinalizer()
     }
 
-    constructor() : this(*emptyArray<AnimationBuilderFlag>()) {}
+    constructor() : this(*emptyArray<AnimationBuilderFlag>())
     constructor(vararg builderFlags: AnimationBuilderFlag) : this(AnimationBuilder_nMake(_flagsToInt(*builderFlags))) {
         Stats.onNativeCall()
     }

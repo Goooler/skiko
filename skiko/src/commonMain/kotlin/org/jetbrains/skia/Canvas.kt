@@ -336,7 +336,7 @@ open class Canvas internal constructor(ptr: NativePointer, managed: Boolean, int
     fun drawRectShadowNoclip(r: Rect, dx: Float, dy: Float, blur: Float, spread: Float, color: Int): Canvas {
         val outline = r.inflate(spread)
         makeDropShadowOnly(dx, dy, blur / 2f, blur / 2f, color).use { f ->
-            org.jetbrains.skia.Paint().use { p ->
+            Paint().use { p ->
                 p.imageFilter = f
                 if (outline is RRect) drawRRect(outline, p) else drawRect(outline, p)
             }

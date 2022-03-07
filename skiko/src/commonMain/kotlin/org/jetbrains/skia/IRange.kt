@@ -24,7 +24,7 @@ class IRange(val start: Int, val end: Int) {
         return "IRange(_start=$start, _end=$end)"
     }
 
-    companion object {}
+    companion object
 }
 
 internal fun IRange.Companion.fromInteropPointer(block: InteropScope.(InteropPointer) -> Unit): IRange {

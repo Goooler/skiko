@@ -2,7 +2,7 @@ package org.jetbrains.skia
 
 class FontVariation(val _tag: Int, val value: Float) {
 
-    constructor(feature: String, value: Float) : this(FourByteTag.fromString(feature), value) {}
+    constructor(feature: String, value: Float) : this(FourByteTag.fromString(feature), value)
 
     val tag: String
         get() = FourByteTag.toString(_tag)

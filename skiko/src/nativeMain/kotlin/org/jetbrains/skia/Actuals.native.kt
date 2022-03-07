@@ -46,7 +46,7 @@ internal actual fun defaultLanguageTag(): String = LANG
 
 internal actual fun compilePattern(regex: String): Pattern = Pattern(regex)
 
-actual typealias ExternalSymbolName = kotlin.native.SymbolName
+actual typealias ExternalSymbolName = SymbolName
 
 @SymbolName("uloc_getDefault")
 private external fun uloc_getDefault(): CPointer<ByteVar>

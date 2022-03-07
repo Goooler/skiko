@@ -565,7 +565,7 @@ fun orderEmojiAndSymbolsPopup() {
 internal fun defaultFPSCounter(
     component: Component
 ): FPSCounter? = with(SkikoProperties) {
-    if (!SkikoProperties.fpsEnabled) return@with null
+    if (!fpsEnabled) return@with null
 
     // it is slow on Linux (100ms), so we cache it. Also refreshRate available only after window is visible
     val refreshRate by lazy { component.graphicsConfiguration.device.displayMode.refreshRate }

@@ -90,7 +90,7 @@ internal class MacosGLLayer : CAOpenGLLayer {
         this.setAutoresizingMask(kCALayerWidthSizable or kCALayerHeightSizable )
         skiaLayer.nsView.layer = this
         skiaLayer.nsView.wantsLayer = true
-        this.contentsGravity = kCAGravityTopLeft;
+        this.contentsGravity = kCAGravityTopLeft
     }
 
     fun setFrame(x: Int, y: Int, width: Int, height: Int) {
@@ -121,7 +121,7 @@ internal class MacosGLLayer : CAOpenGLLayer {
         forLayerTime: CFTimeInterval,
         displayTime: CPointer<CVTimeStamp>?
     ) {
-        CGLSetCurrentContext(ctx);
+        CGLSetCurrentContext(ctx)
         try {
             skiaLayer.update(getTimeNanos())
             contextHandler.draw()

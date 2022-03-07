@@ -84,7 +84,7 @@ internal abstract class BaseVisualStudioBuildToolsArgBuilder : AbstractArgBuilde
     }
 }
 
-internal class DefaultArgBuilder() : AbstractArgBuilder() {
+internal class DefaultArgBuilder : AbstractArgBuilder() {
     override fun newSelfInstance(): ArgBuilder = DefaultArgBuilder()
 }
 

@@ -43,7 +43,7 @@ internal abstract class RunExternalProcessWork: WorkAction<RunExternalProcessWor
 
 internal class WorkResult(val log: BufferedLog, val failure: Exception?)
 
-internal class BufferedLog() {
+internal class BufferedLog {
     private val logLines = arrayListOf<LogLine>()
     private data class LogLine(val line: String, val isError: Boolean)
 

@@ -14,7 +14,7 @@ class SVGLength(val value: Float, val unit: SVGLengthUnit) {
 
     internal constructor(value: Float, unit: Int) : this(value, SVGLengthUnit.values()[unit])
 
-    constructor(value: Float) : this(value, SVGLengthUnit.NUMBER) {}
+    constructor(value: Float) : this(value, SVGLengthUnit.NUMBER)
 
     override fun equals(other: Any?): Boolean {
         if (other === this) return true

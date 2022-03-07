@@ -1,9 +1,8 @@
 package org.jetbrains.skiko
 
-import org.w3c.dom.events.MouseEvent
 import org.w3c.dom.events.KeyboardEvent
+import org.w3c.dom.events.MouseEvent
 import org.w3c.dom.events.WheelEvent
-import org.w3c.dom.events.InputEvent
 
 private val SPECIAL_KEYS = setOf(
     "Unidentified",

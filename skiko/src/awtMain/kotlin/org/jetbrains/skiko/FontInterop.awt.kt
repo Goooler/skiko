@@ -187,9 +187,7 @@ class AwtFontManager(fontPaths: Array<String> = emptyArray()) {
      * when changed.
      */
     fun invalidate() {
-        cacheJob?.let {
-            it.cancel()
-        }
+        cacheJob?.cancel()
         allFontsCachedImpl = false
         cacheJob = GlobalScope.launch(Dispatchers.IO) {
             cacheAllFonts()

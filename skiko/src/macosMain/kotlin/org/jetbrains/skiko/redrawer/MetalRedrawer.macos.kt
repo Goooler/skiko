@@ -169,7 +169,7 @@ internal class MetalLayer : CAMetalLayer {
         }
         skiaLayer.nsView.layer = this
         skiaLayer.nsView.wantsLayer = true
-        this.contentsGravity = kCAGravityTopLeft;
+        this.contentsGravity = kCAGravityTopLeft
     }
 
     fun dispose() {

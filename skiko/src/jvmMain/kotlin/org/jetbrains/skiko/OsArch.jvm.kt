@@ -33,7 +33,7 @@ internal val javaVendor by lazy {
 }
 
 internal val javaLocation by lazy {
-    "${System.getProperty("java.home")}"
+    System.getProperty("java.home")
 }
 
 actual val kotlinBackend: KotlinBackend

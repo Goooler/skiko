@@ -3,7 +3,6 @@ package org.jetbrains.skiko
 import kotlinx.browser.window
 import org.jetbrains.skia.Canvas
 import org.w3c.dom.HTMLCanvasElement
-import org.w3c.dom.events.InputEvent
 import org.w3c.dom.events.KeyboardEvent
 import org.w3c.dom.events.MouseEvent
 import org.w3c.dom.events.WheelEvent

@@ -2,8 +2,6 @@ package internal.utils
 
 import org.gradle.api.Task
 import org.gradle.api.file.FileSystemLocation
-import org.gradle.api.model.ObjectFactory
-import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
 import java.io.File
 import java.io.Writer

@@ -18,7 +18,7 @@ class IcuBidiRunIterator(text: ManagedString, manageText: Boolean, bidiLevel: In
         }
     }
 
-    constructor(text: String, bidiLevel: Int) : this(ManagedString(text), true, bidiLevel) {}
+    constructor(text: String, bidiLevel: Int) : this(ManagedString(text), true, bidiLevel)
 
     override operator fun next(): BidiRun {
         return try {

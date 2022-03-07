@@ -15,7 +15,7 @@ import java.util.*
 import java.util.concurrent.Callable
 import kotlin.collections.HashSet
 
-abstract class CompileSkikoCppTask() : AbstractSkikoNativeToolTask() {
+abstract class CompileSkikoCppTask : AbstractSkikoNativeToolTask() {
     @get:Internal
     open val srcExtensions: Array<String> = arrayOf("cc")
 

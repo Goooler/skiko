@@ -109,8 +109,8 @@ actual enum class SkikoKey(val value: Int) {
 
     companion object {
         fun valueOf(value: Int): SkikoKey {
-            val key = SkikoKey.values().firstOrNull { it.value == value }
-            return if (key == null) SkikoKey.KEY_UNKNOWN else key
+            val key = values().firstOrNull { it.value == value }
+            return if (key == null) KEY_UNKNOWN else key
         }
     }
 }

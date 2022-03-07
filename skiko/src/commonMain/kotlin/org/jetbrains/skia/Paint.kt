@@ -391,13 +391,13 @@ class Paint : Managed {
     fun getFillPath(src: Path, cull: Rect?, resScale: Float): Path {
         return try {
             Stats.onNativeCall()
-            if (cull == null) org.jetbrains.skia.Path(
+            if (cull == null) Path(
                 _nGetFillPath(
                     _ptr,
                     getPtr(src),
                     resScale
                 )
-            ) else org.jetbrains.skia.Path(
+            ) else Path(
                 _nGetFillPathCull(
                     _ptr,
                     getPtr(src),
@@ -566,7 +566,7 @@ class Paint : Managed {
         get() = try {
             Stats.onNativeCall()
             val imageFilterPtr = _nGetImageFilter(_ptr)
-            if (imageFilterPtr == NullPointer) null else org.jetbrains.skia.ImageFilter(imageFilterPtr)
+            if (imageFilterPtr == NullPointer) null else ImageFilter(imageFilterPtr)
         } finally {
             reachabilityBarrier(this)
         }

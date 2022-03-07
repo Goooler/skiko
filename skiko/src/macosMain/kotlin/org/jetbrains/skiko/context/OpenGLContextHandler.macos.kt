@@ -32,8 +32,8 @@ internal class MacOSOpenGLContextHandler(layer: SkiaLayer) : ContextHandler(laye
         var result: UInt = 0U
         memScoped {
             val data = alloc<IntVar>()
-            glGetIntegerv(pname, data.ptr);
-            result = data.value.toUInt();
+            glGetIntegerv(pname, data.ptr)
+            result = data.value.toUInt()
         }
         return result
     }

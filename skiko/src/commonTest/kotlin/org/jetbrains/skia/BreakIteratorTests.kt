@@ -9,7 +9,6 @@ import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
-import kotlin.test.assertTrue
 
 private fun BreakIterator.asSequence() = generateSequence { next().let { n -> if (n == -1) null else n } }
 

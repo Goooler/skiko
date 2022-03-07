@@ -381,7 +381,7 @@ class Font : Managed {
     fun measureText(s: String?, p: Paint? = null): Rect {
         return try {
             Stats.onNativeCall()
-            Rect.fromInteropPointer() {
+            Rect.fromInteropPointer {
                 _nMeasureText(_ptr, toInterop(s), s?.length ?: 0, getPtr(p), it)
             }
         } finally {

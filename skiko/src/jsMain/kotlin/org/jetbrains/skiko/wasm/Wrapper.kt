@@ -14,8 +14,8 @@ external fun onWasmReady(onReady: () -> Unit)
 internal external val wasmSetup: Promise<Boolean>
 
 private external interface GLInterface {
-    fun createContext(context: HTMLCanvasElement, contextAttributes: dynamic): NativePointer;
-    fun makeContextCurrent(contextPointer: NativePointer): Boolean;
+    fun createContext(context: HTMLCanvasElement, contextAttributes: dynamic): NativePointer
+    fun makeContextCurrent(contextPointer: NativePointer): Boolean
 }
 
 internal external object GL : GLInterface {

@@ -5,7 +5,6 @@ import java.net.URL
 import java.net.URLClassLoader
 import java.nio.file.Paths
 import kotlin.concurrent.thread
-import kotlin.test.Ignore
 
 private class PlatformAndURLClassLoader(classpath: List<URL>) :
     ClassLoader(getPlatformClassLoader()) {

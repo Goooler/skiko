@@ -127,8 +127,8 @@ fun toSkikoEvent(event: KeyEvent): SkikoKeyboardEvent {
         SkikoKey.valueOf(toSkikoKey(event)),
         toSkikoModifiers(event.modifiersEx),
         when(event.id) {
-            KeyEvent.KEY_PRESSED -> SkikoKeyboardEventKind.DOWN
-            KeyEvent.KEY_RELEASED -> SkikoKeyboardEventKind.UP
+            KEY_PRESSED -> SkikoKeyboardEventKind.DOWN
+            KEY_RELEASED -> SkikoKeyboardEventKind.UP
             else -> SkikoKeyboardEventKind.UNKNOWN
         },
         event.`when`,

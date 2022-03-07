@@ -1,9 +1,15 @@
 package org.jetbrains.skia.sksg
 
+import org.jetbrains.skia.ExternalSymbolName
+import org.jetbrains.skia.Matrix33
+import org.jetbrains.skia.Rect
+import org.jetbrains.skia.impl.InteropPointer
 import org.jetbrains.skia.impl.Library.Companion.staticLoad
-import org.jetbrains.skia.*
-import org.jetbrains.skia.impl.*
-import kotlin.jvm.JvmStatic
+import org.jetbrains.skia.impl.Managed
+import org.jetbrains.skia.impl.NativePointer
+import org.jetbrains.skia.impl.Stats
+import org.jetbrains.skia.impl.interopScope
+import org.jetbrains.skia.impl.reachabilityBarrier
 
 /**
  *
@@ -22,7 +28,7 @@ class InvalidationController internal constructor(ptr: NativePointer) : Managed(
         val PTR = InvalidationController_nGetFinalizer()
     }
 
-    constructor() : this(InvalidationController_nMake()) {}
+    constructor() : this(InvalidationController_nMake())
 
     fun invalidate(left: Float, top: Float, right: Float, bottom: Float, matrix: Matrix33?): InvalidationController {
         Stats.onNativeCall()

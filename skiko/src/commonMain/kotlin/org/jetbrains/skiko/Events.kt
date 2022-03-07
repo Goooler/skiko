@@ -29,28 +29,28 @@ value class SkikoMouseButtons(val value: Int) {
 
     override fun toString(): String {
         val result = mutableListOf<String>().apply {
-            if (has(SkikoMouseButtons.LEFT)) {
+            if (has(LEFT)) {
                 add("LEFT")
             }
-            if (has(SkikoMouseButtons.RIGHT)) {
+            if (has(RIGHT)) {
                 add("RIGHT")
             }
-            if (has(SkikoMouseButtons.MIDDLE)) {
+            if (has(MIDDLE)) {
                 add("MIDDLE")
             }
-            if (has(SkikoMouseButtons.BUTTON_4)) {
+            if (has(BUTTON_4)) {
                 add("BUTTON_4")
             }
-            if (has(SkikoMouseButtons.BUTTON_5)) {
+            if (has(BUTTON_5)) {
                 add("BUTTON_5")
             }
-            if (has(SkikoMouseButtons.BUTTON_6)) {
+            if (has(BUTTON_6)) {
                 add("BUTTON_6")
             }
-            if (has(SkikoMouseButtons.BUTTON_7)) {
+            if (has(BUTTON_7)) {
                 add("BUTTON_7")
             }
-            if (has(SkikoMouseButtons.BUTTON_8)) {
+            if (has(BUTTON_8)) {
                 add("BUTTON_8")
             }
         }
@@ -77,16 +77,16 @@ value class SkikoInputModifiers(val value: Int) {
 
     override fun toString(): String {
         val result = mutableListOf<String>().apply {
-            if (has(SkikoInputModifiers.META)) {
+            if (has(META)) {
                 add("META")
             }
-            if (has(SkikoInputModifiers.CONTROL)) {
+            if (has(CONTROL)) {
                 add("CONTROL")
             }
-            if (has(SkikoInputModifiers.ALT)) {
+            if (has(ALT)) {
                 add("ALT")
             }
-            if (has(SkikoInputModifiers.SHIFT)) {
+            if (has(SHIFT)) {
                 add("SHIFT")
             }
         }

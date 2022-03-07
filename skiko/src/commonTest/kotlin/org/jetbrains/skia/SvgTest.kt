@@ -1,9 +1,13 @@
 package org.jetbrains.skia
 
-import org.jetbrains.skia.svg.*
+import org.jetbrains.skia.svg.SVGDOM
+import org.jetbrains.skia.svg.SVGLengthContext
+import org.jetbrains.skia.svg.SVGLengthUnit
+import org.jetbrains.skia.svg.SVGPreserveAspectRatio
+import org.jetbrains.skia.svg.SVGPreserveAspectRatioAlign
+import org.jetbrains.skia.svg.SVGPreserveAspectRatioScale
+import org.jetbrains.skia.svg.SVGTag
 import org.jetbrains.skia.tests.assertCloseEnough
-import org.jetbrains.skiko.KotlinBackend
-import org.jetbrains.skiko.kotlinBackend
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
