@@ -295,7 +295,7 @@ actual open class SkiaLayer internal constructor(
     }
 
     private fun notifyChange(kind: PropertyKind) {
-        stateHandlers.get(kind)?.let { handlers ->
+        stateHandlers[kind]?.let { handlers ->
             handlers.forEach { it(this) }
         }
     }
@@ -359,7 +359,7 @@ actual open class SkiaLayer internal constructor(
     }
 
     override fun getInputMethodListeners(): Array<InputMethodListener> {
-        return backedLayer.getInputMethodListeners()
+        return backedLayer.inputMethodListeners
     }
 
     override fun processInputMethodEvent(e: InputMethodEvent?) {

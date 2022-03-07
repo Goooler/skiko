@@ -38,8 +38,8 @@ fun createWindow(title: String, exitOnClose: Boolean) = SwingUtilities.invokeLat
     menuBar.add(fileMenu)
 
     val miFullscreenState = JMenuItem("Is fullscreen mode")
-    val ctrlI = KeyStroke.getKeyStroke(KeyEvent.VK_I, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx())
-    miFullscreenState.setAccelerator(ctrlI)
+    val ctrlI = KeyStroke.getKeyStroke(KeyEvent.VK_I, Toolkit.getDefaultToolkit().menuShortcutKeyMaskEx)
+    miFullscreenState.accelerator = ctrlI
     miFullscreenState.addActionListener(object : ActionListener {
         override fun actionPerformed(actionEvent: ActionEvent?) {
             println("${window.title} is in fullscreen mode: ${skiaLayer.fullscreen}")
@@ -47,8 +47,8 @@ fun createWindow(title: String, exitOnClose: Boolean) = SwingUtilities.invokeLat
     })
 
     val miToggleFullscreen = JMenuItem("Toggle fullscreen")
-    val ctrlF = KeyStroke.getKeyStroke(KeyEvent.VK_F, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx())
-    miToggleFullscreen.setAccelerator(ctrlF)
+    val ctrlF = KeyStroke.getKeyStroke(KeyEvent.VK_F, Toolkit.getDefaultToolkit().menuShortcutKeyMaskEx)
+    miToggleFullscreen.accelerator = ctrlF
     miToggleFullscreen.addActionListener(object : ActionListener {
         override fun actionPerformed(actionEvent: ActionEvent?) {
             skiaLayer.fullscreen = !skiaLayer.fullscreen
@@ -58,8 +58,8 @@ fun createWindow(title: String, exitOnClose: Boolean) = SwingUtilities.invokeLat
     val defaultScreenshotPath =
         Files.createTempFile("compose_", ".png").toAbsolutePath().toString()
     val miTakeScreenshot = JMenuItem("Take screenshot to $defaultScreenshotPath")
-    val ctrlS = KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx())
-    miTakeScreenshot.setAccelerator(ctrlS)
+    val ctrlS = KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().menuShortcutKeyMaskEx)
+    miTakeScreenshot.accelerator = ctrlS
     miTakeScreenshot.addActionListener(object : ActionListener {
         override fun actionPerformed(actionEvent: ActionEvent?) {
             val screenshot = skiaLayer.screenshot()!!
@@ -73,8 +73,8 @@ fun createWindow(title: String, exitOnClose: Boolean) = SwingUtilities.invokeLat
     })
 
     val miDpiState = JMenuItem("Get current DPI")
-    val ctrlD = KeyStroke.getKeyStroke(KeyEvent.VK_D, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx())
-    miDpiState.setAccelerator(ctrlD)
+    val ctrlD = KeyStroke.getKeyStroke(KeyEvent.VK_D, Toolkit.getDefaultToolkit().menuShortcutKeyMaskEx)
+    miDpiState.accelerator = ctrlD
     miDpiState.addActionListener(object : ActionListener {
         override fun actionPerformed(actionEvent: ActionEvent?) {
             println("DPI: ${skiaLayer.currentDPI}")
@@ -90,7 +90,7 @@ fun createWindow(title: String, exitOnClose: Boolean) = SwingUtilities.invokeLat
     menuBar.add(editMenu)
 
     val miEmojiAndSymbols = JMenuItem("Emoji & Symbols")
-    miEmojiAndSymbols.setAccelerator(KeyStroke.getKeyStroke("ctrl meta SPACE"))
+    miEmojiAndSymbols.accelerator = KeyStroke.getKeyStroke("ctrl meta SPACE")
     miEmojiAndSymbols.addActionListener(object : ActionListener {
         override fun actionPerformed(actionEvent: ActionEvent?) {
             orderEmojiAndSymbolsPopup()
@@ -99,7 +99,7 @@ fun createWindow(title: String, exitOnClose: Boolean) = SwingUtilities.invokeLat
 
     editMenu.add(miEmojiAndSymbols)
 
-    window.setJMenuBar(menuBar)
+    window.jMenuBar = menuBar
 
     skiaLayer.onStateChanged(SkiaLayer.PropertyKind.Renderer) { layer ->
         println("Changed renderer for $layer: new value is ${layer.renderApi}")
@@ -109,7 +109,7 @@ fun createWindow(title: String, exitOnClose: Boolean) = SwingUtilities.invokeLat
 
     // Window transparency
     if (System.getProperty("skiko.transparency") == "true") {
-        window.setUndecorated(true)
+        window.isUndecorated = true
         // On Windows we don't set transparent background to avoid event input issues (JDK specific)
         if (hostOs != OS.Windows) {
             window.background = Color(0, 0, 0, 0)

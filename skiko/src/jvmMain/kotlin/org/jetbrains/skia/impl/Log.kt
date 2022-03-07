@@ -62,14 +62,15 @@ object Log {
     init {
         val property = System.getProperty("skija.logLevel")
         _level =
-            if ("ALL" == property)
-                0 else if ("TRACE" == property)
-                    1 else if ("DEBUG" == property)
-                        2 else if ("INFO" == property)
-                            3 else if (null == property || "WARN" == property)
-                                4 else if ("ERROR" == property)
-                                    5 else if ("NONE" == property)
-                                        6 else
-                                            throw IllegalArgumentException("Unknown log level: $property")
+            when (property) {
+                "ALL" -> 0
+                "TRACE" -> 1
+                "DEBUG" -> 2
+                "INFO" -> 3
+                null, "WARN" -> 4
+                "ERROR" -> 5
+                "NONE" -> 6
+                else -> throw IllegalArgumentException("Unknown log level: $property")
+            }
     }
 }

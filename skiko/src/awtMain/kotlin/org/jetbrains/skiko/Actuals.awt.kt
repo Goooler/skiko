@@ -48,7 +48,7 @@ internal actual fun URIHandler_openUri(uri: String) {
 
 private val systemClipboard by lazy {
     try {
-        Toolkit.getDefaultToolkit().getSystemClipboard()
+        Toolkit.getDefaultToolkit().systemClipboard
     } catch (e: java.awt.HeadlessException) {
         null
     }

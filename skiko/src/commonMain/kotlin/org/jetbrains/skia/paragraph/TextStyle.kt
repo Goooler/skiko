@@ -374,7 +374,7 @@ class TextStyle internal constructor(ptr: NativePointer) : Managed(ptr, _Finaliz
     var baselineMode: BaselineMode
         get() = try {
             Stats.onNativeCall()
-            BaselineMode.values().get(_nGetBaselineMode(_ptr))
+            BaselineMode.values()[_nGetBaselineMode(_ptr)]
         } finally {
             reachabilityBarrier(this)
         }

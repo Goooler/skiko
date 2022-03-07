@@ -320,7 +320,7 @@ class Path internal constructor(ptr: NativePointer) : Managed(ptr, _FinalizerHol
     var fillMode: PathFillMode
         get() = try {
             Stats.onNativeCall()
-            PathFillMode.values().get(_nGetFillMode(_ptr))
+            PathFillMode.values()[_nGetFillMode(_ptr)]
         } finally {
             reachabilityBarrier(this)
         }
@@ -685,9 +685,7 @@ class Path internal constructor(ptr: NativePointer) : Managed(ptr, _FinalizerHol
                     out?.let { ptr.fromInterop(it) }
                 }
             }
-            if (verbs != null) for (i in 0 until minOf(count, max)) verbs[i] = PathVerb.values().get(
-                out!![i].toInt()
-            )
+            if (verbs != null) for (i in 0 until minOf(count, max)) verbs[i] = PathVerb.values()[out!![i].toInt()]
             count
         } finally {
             reachabilityBarrier(this)

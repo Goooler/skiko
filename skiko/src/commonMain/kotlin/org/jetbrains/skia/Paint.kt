@@ -122,7 +122,7 @@ class Paint : Managed {
     var mode: PaintMode
         get() = try {
             Stats.onNativeCall()
-            PaintMode.values().get(_nGetMode(_ptr))
+            PaintMode.values()[_nGetMode(_ptr)]
         } finally {
             reachabilityBarrier(this)
         }
@@ -337,7 +337,7 @@ class Paint : Managed {
     var strokeCap: PaintStrokeCap
         get() = try {
             Stats.onNativeCall()
-            PaintStrokeCap.values().get(_nGetStrokeCap(_ptr))
+            PaintStrokeCap.values()[_nGetStrokeCap(_ptr)]
         } finally {
             reachabilityBarrier(this)
         }
@@ -358,7 +358,7 @@ class Paint : Managed {
     var strokeJoin: PaintStrokeJoin
         get() = try {
             Stats.onNativeCall()
-            PaintStrokeJoin.values().get(_nGetStrokeJoin(_ptr))
+            PaintStrokeJoin.values()[_nGetStrokeJoin(_ptr)]
         } finally {
             reachabilityBarrier(this)
         }
@@ -480,7 +480,7 @@ class Paint : Managed {
     var blendMode: BlendMode
         get() = try {
             Stats.onNativeCall()
-            BlendMode.values().get(_nGetBlendMode(_ptr))
+            BlendMode.values()[_nGetBlendMode(_ptr)]
         } finally {
             reachabilityBarrier(this)
         }

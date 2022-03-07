@@ -100,7 +100,7 @@ fun toSkikoEvent(event: MouseEvent): SkikoPointerEvent {
 }
 
 fun toSkikoEvent(event: MouseWheelEvent): SkikoPointerEvent {
-    val scrollAmount = event.getPreciseWheelRotation()
+    val scrollAmount = event.preciseWheelRotation
     val modifiers = toSkikoModifiers(event.modifiersEx)
     val isShiftPressed = modifiers.has(SkikoInputModifiers.SHIFT)
     val deltaX = if (isShiftPressed) scrollAmount else 0.0
@@ -227,7 +227,7 @@ private fun toSkikoModifiers(modifiers: Int): SkikoInputModifiers {
 
 private fun toSkikoKey(event: KeyEvent): Int {
     var key = event.keyCode
-    val side = event.getKeyLocation()
+    val side = event.keyLocation
     if (side == KEY_LOCATION_RIGHT) {
         if (
             key == SkikoKey.KEY_LEFT_CONTROL.value ||

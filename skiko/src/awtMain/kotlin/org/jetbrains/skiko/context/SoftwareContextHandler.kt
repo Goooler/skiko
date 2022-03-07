@@ -76,9 +76,9 @@ internal class SoftwareContextHandler(layer: SkiaLayer) : JvmContextHandler(laye
                 null
             )
             image = BufferedImage(colorModel, raster!!, false, null)
-            val graphics = layer.backedLayer.getGraphics()
+            val graphics = layer.backedLayer.graphics
             if (!layer.fullscreen && layer.transparency && hostOs == OS.MacOS) {
-                graphics?.setColor(Color(0, 0, 0, 0))
+                graphics?.color = Color(0, 0, 0, 0)
                 graphics?.clearRect(0, 0, w, h)
             }
             graphics?.drawImage(image!!, 0, 0, layer.width, layer.height, null)

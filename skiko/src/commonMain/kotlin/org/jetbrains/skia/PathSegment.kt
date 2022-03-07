@@ -12,9 +12,7 @@ class PathSegment constructor(
 ) {
 
     constructor(verbOrdinal: Int, x0: Float, y0: Float, isClosedContour: Boolean) : this(
-        PathVerb.values().get(
-            verbOrdinal
-        ), Point(x0, y0), null, null, null, 0.0f, false, isClosedContour
+        PathVerb.values()[verbOrdinal], Point(x0, y0), null, null, null, 0.0f, false, isClosedContour
     ) {
         require(verbOrdinal == PathVerb.MOVE.ordinal || verbOrdinal == PathVerb.CLOSE.ordinal) {
             "Expected MOVE or CLOSE, got " + PathVerb.values()[verbOrdinal]

@@ -12,8 +12,8 @@ open class SkiaPanel: JLayeredPane {
     val layer = SkiaLayer()
 
     constructor() : super() {
-        setLayout(null)
-        setBackground(Color.white)
+        layout = null
+        background = Color.white
     }
 
     override fun add(component: Component): Component {
