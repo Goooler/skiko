@@ -754,7 +754,7 @@ fun Project.androidJar(askedVersion: String = ""): Provider<File> =
                 name.removePrefix("android-").toInt()
             } ?: error(
                 buildString {
-                    appendLine("'$platformsDir' does not contain any directories matching expected 'android-NUMBER' format: ${versions}")
+                    appendLine("'$platformsDir' does not contain any directories matching expected 'android-NUMBER' format: $versions")
                 }
             )
         } else {
@@ -988,7 +988,7 @@ fun KotlinTarget.generateVersion(
                 package org.jetbrains.skiko
                 object Version {
                   val skiko = "${skiko.deployVersion}"
-                  val skia = "${skiaTag}"
+                  val skia = "$skiaTag"
                 }
                 """.trimIndent()
             )

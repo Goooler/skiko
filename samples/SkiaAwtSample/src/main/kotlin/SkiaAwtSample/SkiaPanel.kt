@@ -8,10 +8,10 @@ import java.awt.event.ComponentAdapter
 import java.awt.event.ComponentEvent
 import javax.swing.JLayeredPane
 
-open class SkiaPanel: JLayeredPane {
+open class SkiaPanel : JLayeredPane() {
     val layer = SkiaLayer()
 
-    constructor() : super() {
+    init {
         layout = null
         background = Color.white
     }

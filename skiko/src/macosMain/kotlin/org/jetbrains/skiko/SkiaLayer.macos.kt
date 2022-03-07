@@ -1,29 +1,27 @@
 package org.jetbrains.skiko
 
-import kotlinx.cinterop.ObjCAction
-import kotlinx.cinterop.useContents
-import kotlinx.cinterop.CValue
 import kotlinx.cinterop.COpaquePointer
+import kotlinx.cinterop.CValue
+import kotlinx.cinterop.ObjCAction
 import kotlinx.cinterop.convert
+import kotlinx.cinterop.useContents
 import org.jetbrains.skia.*
-import org.jetbrains.skiko.redrawer.MacOsOpenGLRedrawer
 import org.jetbrains.skiko.redrawer.Redrawer
 import platform.AppKit.*
+import platform.CoreGraphics.CGRectMake
 import platform.Foundation.NSAttributedString
-import platform.Foundation.NSMutableAttributedString
-import platform.Foundation.NSMakeRect
 import platform.Foundation.NSMakeRange
-import platform.Foundation.NSRange
-import platform.Foundation.NSRangePointer
-import platform.Foundation.NSPoint
-import platform.Foundation.NSRect
+import platform.Foundation.NSMakeRect
 import platform.Foundation.NSNotFound
 import platform.Foundation.NSNotification
 import platform.Foundation.NSNotificationCenter
+import platform.Foundation.NSPoint
+import platform.Foundation.NSRange
+import platform.Foundation.NSRangePointer
+import platform.Foundation.NSRect
 import platform.Foundation.NSSelectorFromString
 import platform.Foundation.addObserver
 import platform.darwin.NSObject
-import platform.CoreGraphics.CGRectMake
 
 /**
  * SkiaLayer implementation for macOS.

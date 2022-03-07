@@ -11,7 +11,7 @@ repositories {
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
-val osName = System.getProperty("os.name")
+val osName: String = System.getProperty("os.name")
 val targetOs = when {
     osName == "Mac OS X" -> "macos"
     osName.startsWith("Win") -> "windows"

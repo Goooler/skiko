@@ -47,11 +47,10 @@ fun toSkikoEvent(
     } else {
         buttonsFlags.xor(button.value)
     }
-    var buttons: SkikoMouseButtons = SkikoMouseButtons(buttonsFlags)
     return SkikoPointerEvent(
         x = xpos,
         y = ypos,
-        pressedButtons = buttons,
+        pressedButtons = SkikoMouseButtons(buttonsFlags),
         button = button,
         modifiers = toSkikoModifiers(event),
         kind = kind,
