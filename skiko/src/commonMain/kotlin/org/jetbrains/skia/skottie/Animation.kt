@@ -46,7 +46,7 @@ class Animation internal constructor(ptr: NativePointer) : Managed(ptr, _Finaliz
      * @return        this
      */
     fun render(canvas: Canvas): Animation {
-        return render(canvas, Rect.Companion.makeXYWH(0f, 0f, width, height))
+        return render(canvas, Rect.makeXYWH(0f, 0f, width, height))
     }
 
     /**
@@ -79,7 +79,7 @@ class Animation internal constructor(ptr: NativePointer) : Managed(ptr, _Finaliz
      * @return        this
      */
     fun render(canvas: Canvas, left: Float, top: Float): Animation {
-        return render(canvas, Rect.Companion.makeXYWH(left, top, width, height))
+        return render(canvas, Rect.makeXYWH(left, top, width, height))
     }
 
     /**

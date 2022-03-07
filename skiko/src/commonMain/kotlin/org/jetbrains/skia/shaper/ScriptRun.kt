@@ -4,7 +4,7 @@ import org.jetbrains.skia.FourByteTag
 
 class ScriptRun(internal val end: Int, internal val scriptTag: Int) {
 
-    constructor(end: Int, script: String) : this(end, FourByteTag.Companion.fromString(script)) {}
+    constructor(end: Int, script: String) : this(end, FourByteTag.fromString(script)) {}
 
     /**
      * Should be iso15924 codes.

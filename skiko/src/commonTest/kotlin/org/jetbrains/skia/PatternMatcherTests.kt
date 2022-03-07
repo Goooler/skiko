@@ -9,7 +9,7 @@ class PatternMatcherTests {
     fun canSplit() = runTest {
         val _splitPattern = compilePattern("\\s+")
 
-        val result = _splitPattern.split("a b   cd 1   23 -7.0  4   5")!!
+        val result = _splitPattern.split("a b   cd 1   23 -7.0  4   5")
 
         assertContentEquals(
             expected = arrayOf("a", "b", "cd", "1", "23", "-7.0", "4", "5"),

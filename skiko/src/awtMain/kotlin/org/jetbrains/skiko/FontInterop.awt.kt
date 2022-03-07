@@ -109,8 +109,8 @@ class AwtFontManager(fontPaths: Array<String> = emptyArray()) {
             try {
                 addFontFromFile(file)
                 yield()
-            } catch (e: FontFormatException) {
-            } catch (e: IOException) {
+            } catch (_: FontFormatException) {
+            } catch (_: IOException) {
             }
         }
     }

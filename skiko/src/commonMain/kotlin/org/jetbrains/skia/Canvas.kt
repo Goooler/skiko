@@ -484,7 +484,7 @@ open class Canvas internal constructor(ptr: NativePointer, managed: Boolean, int
     }
 
     fun drawTextLine(line: TextLine, x: Float, y: Float, paint: Paint): Canvas {
-        line.textBlob?.use { blob -> blob.let { drawTextBlob(it, x, y, paint) } }
+        line.textBlob?.use { blob -> drawTextBlob(blob, x, y, paint) }
         return this
     }
 

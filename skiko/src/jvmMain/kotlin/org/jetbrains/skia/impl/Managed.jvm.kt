@@ -130,7 +130,7 @@ private class Cleaner {
                 val ref = queue.remove(60 * 1000L) as Cleanable?
                 try {
                     ref?.clean()
-                } catch (t: Throwable) {
+                } catch (_: Throwable) {
                 }
             }
         }

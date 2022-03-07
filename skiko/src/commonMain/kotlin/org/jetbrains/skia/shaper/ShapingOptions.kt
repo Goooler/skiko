@@ -37,7 +37,7 @@ class ShapingOptions(
 
     fun withFeatures(featuresString: String?): ShapingOptions {
         return if (featuresString == null) withFeatures(null as Array<FontFeature>?) else withFeatures(
-            FontFeature.Companion.parse(
+            FontFeature.parse(
                 featuresString
             )
         )

@@ -37,7 +37,7 @@ class SVGLengthContext constructor(
     }
 
     fun resolveRect(x: SVGLength, y: SVGLength, width: SVGLength, height: SVGLength): Rect {
-        return Rect.Companion.makeXYWH(
+        return Rect.makeXYWH(
             resolve(x, SVGLengthType.HORIZONTAL),
             resolve(y, SVGLengthType.VERTICAL),
             resolve(width, SVGLengthType.HORIZONTAL),

@@ -31,7 +31,7 @@ class Shader internal constructor(ptr: NativePointer) : RefCnt(ptr) {
             y1: Float,
             colors: IntArray,
             positions: FloatArray? = null,
-            style: GradientStyle = GradientStyle.Companion.DEFAULT
+            style: GradientStyle = GradientStyle.DEFAULT
         ): Shader {
             require(positions == null || colors.size == positions.size) { "colors.length " + colors.size + "!= positions.length " + positions!!.size }
             Stats.onNativeCall()
@@ -124,7 +124,7 @@ class Shader internal constructor(ptr: NativePointer) : RefCnt(ptr) {
             r: Float,
             colors: IntArray,
             positions: FloatArray? = null,
-            style: GradientStyle = GradientStyle.Companion.DEFAULT
+            style: GradientStyle = GradientStyle.DEFAULT
         ): Shader {
             require(positions == null || colors.size == positions.size) { "colors.length " + colors.size + "!= positions.length " + positions!!.size }
             Stats.onNativeCall()
@@ -226,7 +226,7 @@ class Shader internal constructor(ptr: NativePointer) : RefCnt(ptr) {
             r1: Float,
             colors: IntArray,
             positions: FloatArray? = null,
-            style: GradientStyle = GradientStyle.Companion.DEFAULT
+            style: GradientStyle = GradientStyle.DEFAULT
         ): Shader {
             require(positions == null || colors.size == positions.size) { "colors.length " + colors.size + "!= positions.length " + positions!!.size }
             Stats.onNativeCall()
@@ -308,7 +308,7 @@ class Shader internal constructor(ptr: NativePointer) : RefCnt(ptr) {
         }
 
         fun makeSweepGradient(x: Float, y: Float, colors: IntArray): Shader {
-            return makeSweepGradient(x, y, 0f, 360f, colors, null, GradientStyle.Companion.DEFAULT)
+            return makeSweepGradient(x, y, 0f, 360f, colors, null, GradientStyle.DEFAULT)
         }
 
         fun makeSweepGradient(center: Point, colors: IntArray, positions: FloatArray?): Shader {
@@ -316,7 +316,7 @@ class Shader internal constructor(ptr: NativePointer) : RefCnt(ptr) {
         }
 
         fun makeSweepGradient(x: Float, y: Float, colors: IntArray, positions: FloatArray?): Shader {
-            return makeSweepGradient(x, y, 0f, 360f, colors, positions, GradientStyle.Companion.DEFAULT)
+            return makeSweepGradient(x, y, 0f, 360f, colors, positions, GradientStyle.DEFAULT)
         }
 
         fun makeSweepGradient(center: Point, colors: IntArray, positions: FloatArray?, style: GradientStyle): Shader {
