@@ -26,12 +26,13 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-      - shell: bash
-        run: |
-          ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:awtTest
-          ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:macosX64Test
-          ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:publishToMavenLocal
-          ./gradlew --stacktrace --info :SkiaAwtSample:installDist # check AWT sample works
+      - uses: gradle/gradle-build-action@v2
+        with:
+          arguments: |
+            --stacktrace --info -Pskiko.native.enabled=true :skiko:awtTest
+            --stacktrace --info -Pskiko.native.enabled=true :skiko:macosX64Test
+            --stacktrace --info -Pskiko.native.enabled=true :skiko:publishToMavenLocal
+            --stacktrace --info :SkiaAwtSample:installDist # check AWT sample works
       - uses: actions/upload-artifact@v3
         with:
           name: test-reports-macos
@@ -49,10 +50,11 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-      - shell: bash
-        run: |
-          ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:iosX64Test
-          ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:publishToMavenLocal
+      - uses: gradle/gradle-build-action@v2
+        with:
+          arguments: |
+            --stacktrace --info -Pskiko.native.enabled=true :skiko:iosX64Test
+            --stacktrace --info -Pskiko.native.enabled=true :skiko:publishToMavenLocal
           # TODO run iOS specific tests on iPhone simulator
       - uses: actions/upload-artifact@v3
         with:
@@ -93,10 +95,13 @@ jobs:
           sudo apt-get install ninja-build fontconfig libfontconfig1-dev libglu1-mesa-dev libxrandr-dev libdbus-1-dev zip xvfb -y
           sudo Xvfb :0 -screen 0 1280x720x24 &
           export DISPLAY=:0
-          ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:linuxX64Test :skiko:awtTest
-          ./gradlew --stacktrace --info :skiko:publishToMavenLocal
-          ./gradlew --stacktrace --info :SkiaAwtSample:installDist # check jvm sample works
-          ./gradlew -Pskiko.android.enabled=true :skiko:publishSkikoJvmRuntimeAndroidX64PublicationToMavenLocal :skiko:publishSkikoJvmRuntimeAndroidArm64PublicationToMavenLocal :skiko:publishAndroidPublicationToMavenLocal
+      - uses: gradle/gradle-build-action@v2
+        with:
+          arguments: |
+            --stacktrace --info -Pskiko.native.enabled=true :skiko:linuxX64Test :skiko:awtTest
+            --stacktrace --info :skiko:publishToMavenLocal
+            --stacktrace --info :SkiaAwtSample:installDist # check jvm sample works
+            -Pskiko.android.enabled=true :skiko:publishSkikoJvmRuntimeAndroidX64PublicationToMavenLocal :skiko:publishSkikoJvmRuntimeAndroidArm64PublicationToMavenLocal :skiko:publishAndroidPublicationToMavenLocal
       - uses: actions/upload-artifact@v3
         with:
           name: test-reports-linux
@@ -132,8 +137,12 @@ jobs:
            ./emsdk activate 2.0.29
            source ./emsdk_env.sh
            cd ..
-           ./gradlew --stacktrace --info -Pskiko.wasm.enabled=true jsTest
-           ./gradlew --stacktrace --info -Pskiko.wasm.enabled=true publishSkikoWasmRuntimePublicationToMavenLocal
+             - uses: gradle/gradle-build-action@v2
+       - uses: actions/upload-artifact@v3
+         with:
+           arguments: |
+           --stacktrace --info -Pskiko.wasm.enabled=true jsTest
+           --stacktrace --info -Pskiko.wasm.enabled=true publishSkikoWasmRuntimePublicationToMavenLocal
        - uses: actions/upload-artifact@v3
          with:
            name: test-reports-js
@@ -150,11 +159,12 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-      - shell: bash
-        run: |
-          ./gradlew --stacktrace --info :skiko:awtTest
-          ./gradlew --stacktrace --info :skiko:publishToMavenLocal
-          ./gradlew --stacktrace --info :SkiaAwtSample:installDist # check jvm sample works
+      - uses: gradle/gradle-build-action@v2
+        with:
+          arguments: |
+            --stacktrace --info :skiko:awtTest
+            --stacktrace --info :skiko:publishToMavenLocal
+            --stacktrace --info :SkiaAwtSample:installDist # check jvm sample works
       - uses: actions/upload-artifact@v3
         with:
           name: test-reports-windows
