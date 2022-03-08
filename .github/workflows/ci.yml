@@ -137,12 +137,11 @@ jobs:
           ./emsdk activate 2.0.29
           source ./emsdk_env.sh
           cd ..
-            - uses: gradle/gradle-build-action@v2
-      - uses: actions/upload-artifact@v3
+      - uses: gradle/gradle-build-action@v2
         with:
           arguments: |
-          --stacktrace --info -Pskiko.wasm.enabled=true jsTest
-          --stacktrace --info -Pskiko.wasm.enabled=true publishSkikoWasmRuntimePublicationToMavenLocal
+            --stacktrace --info -Pskiko.wasm.enabled=true jsTest
+            --stacktrace --info -Pskiko.wasm.enabled=true publishSkikoWasmRuntimePublicationToMavenLocal
       - uses: actions/upload-artifact@v3
         with:
           name: test-reports-js
