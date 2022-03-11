@@ -33,7 +33,7 @@ jobs:
           ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:macosX64Test
           ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:publishToMavenLocal
           ./gradlew --stacktrace --info :SkiaAwtSample:installDist # check AWT sample works
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: test-reports-macos
           path: ./skiko/build/reports/tests
@@ -56,7 +56,7 @@ jobs:
           ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:iosX64Test
           ./gradlew --stacktrace --info -Pskiko.native.enabled=true :skiko:publishToMavenLocal
           # TODO run iOS specific tests on iPhone simulator
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: test-reports-macos
           path: ./skiko/build/reports/tests
@@ -100,7 +100,7 @@ jobs:
           ./gradlew --stacktrace --info :skiko:publishToMavenLocal
           ./gradlew --stacktrace --info :SkiaAwtSample:installDist # check jvm sample works
           ./gradlew -Pskiko.android.enabled=true :skiko:publishSkikoJvmRuntimeAndroidX64PublicationToMavenLocal :skiko:publishSkikoJvmRuntimeAndroidArm64PublicationToMavenLocal :skiko:publishAndroidPublicationToMavenLocal
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: test-reports-linux
           path: ./skiko/build/reports/tests
@@ -138,7 +138,7 @@ jobs:
           cd ..
           ./gradlew --stacktrace --info -Pskiko.wasm.enabled=true jsTest
           ./gradlew --stacktrace --info -Pskiko.wasm.enabled=true publishSkikoWasmRuntimePublicationToMavenLocal
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: test-reports-js
           path: ./skiko/build/reports/tests
@@ -160,7 +160,7 @@ jobs:
           ./gradlew --stacktrace --info :skiko:awtTest
           ./gradlew --stacktrace --info :skiko:publishToMavenLocal
           ./gradlew --stacktrace --info :SkiaAwtSample:installDist # check jvm sample works
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: test-reports-windows
           path: ./skiko/build/reports/tests
