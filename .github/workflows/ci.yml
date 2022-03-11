@@ -77,7 +77,6 @@ jobs:
         id: setup-ndk
         with:
           ndk-version: r21e
-      - uses: android-actions/setup-android@v2
       # Runs a set of commands using the runners shell
       - shell: bash
         env:
